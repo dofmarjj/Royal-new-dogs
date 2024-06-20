@@ -563,11 +563,13 @@ p span {
 
 .page-history__block {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .page-history__title,
 .page-size__title,
-.page-needs__tilte {
+.page-needs__tilte,
+.size__page-title {
   color: #e2001a;
   font-family: DINPro;
   font-weight: 500;
@@ -596,6 +598,25 @@ p span {
   margin-top: 32px;
 }
 
+.size__page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: auto;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.size__block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
 .page-size__block {
   display: flex;
   flex-direction: column;
@@ -604,7 +625,6 @@ p span {
 
 .page-size__title {
   max-width: 50%;
-  text-align: center;
 }
 
 .teeth-block__title,
@@ -635,6 +655,7 @@ p span {
 
 .product-block {
   display: flex;
+  align-items: center;
   padding: 55px 0 55px 80px;
   margin-bottom: 80px;
 }
@@ -659,7 +680,35 @@ p span {
   font-weight: 500;
   font-size: 32px;
   line-height: 112.5%;
+}
+
+.xsmall,
+.xsmall li h3 {
   color: #8abd24;
+}
+
+.mini,
+.mini li h3 {
+  color: #007e32;
+}
+
+.medium,
+.medium li h3 {
+  color: #ae1022;
+}
+
+.maxi,
+.maxi li h3 {
+  color: #0d316e;
+}
+
+.giant,
+.giant li h3 {
+  color: #72207e;
+}
+
+.product-mobile__block {
+  display: none;
 }
 
 .product-block__subtitle {
@@ -693,7 +742,6 @@ p span {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  color: #8abd24;
 }
 
 .icon-subtitle {
@@ -711,6 +759,52 @@ p span {
 
   .header__logo {
     margin-bottom: 0;
+  }
+
+  .page-history {
+    flex-direction: column-reverse;
+  }
+
+  .page-size__title {
+    max-width: 100%;
+  }
+
+  .size-blocks {
+    flex-direction: column-reverse;
+  }
+
+  .size-blocks:nth-child(2n) {
+    flex-direction: column;
+  }
+
+  .page-needs {
+    text-align: center;
+    margin: 50px 0;
+  }
+
+  .product-mobile__block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+
+    /* background-color: #efb4cb; */
+  }
+
+  .product-block__item {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .product-block__img {
+    min-width: 380px;
+  }
+
+  .page__main-block {
+    flex-direction: column;
+    align-items: center;
   }
 
   .page__main-title {
@@ -828,15 +922,33 @@ p span {
   }
 
   .product-mobile__block {
-    display: block;
+    display: flex;
     width: 100%;
     position: relative;
+  }
 
-    background-color: #efb4cb;
+  .product-mobile__block.green {
+    background-color: #8abd24;
+  }
+
+  .product-mobile__block.b-green {
+    background-color: #007e32;
+  }
+
+  .product-mobile__block.red {
+    background-color: #ae1022;
+  }
+
+  .product-mobile__block.blue {
+    background-color: #0d316e;
+  }
+
+  .product-mobile__block.pink {
+    background-color: #72207e;
   }
 
   .product-solution .product-mobile__block {
-    background-color: #e5508d;
+    /* background-color: #e5508d; */
   }
 
   .product-solution .product-mobile__title {
@@ -847,10 +959,25 @@ p span {
   .product-mobile__img {
     max-width: 65px;
     width: 100%;
-    position: absolute;
     z-index: 1;
-    left: 20px;
     bottom: 30%;
+    padding: 0 10px;
+  }
+
+  .product-mobile__text {
+    text-align: center;
+    font-family: DINPro;
+    color: white;
+  }
+
+  .product-mobile__text h2 {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .product-mobile__text span {
+    font-size: 12px;
+    font-weight: 400;
   }
 
   .product-mobile__title {
@@ -875,7 +1002,7 @@ p span {
   .product-mobile__text {
     width: 90%;
     margin: auto;
-
+    gap: 5px;
     padding: 10px;
 
     display: flex;
@@ -994,9 +1121,10 @@ p span {
 
   .page-history__title,
   .product-block__title,
-  .program-title {
+  .program-title,
+  .size__page-title {
     max-width: 100%;
-    font-size: 24px;
+    /* font-size: 24px; */
     line-height: 133.3%;
   }
 
@@ -1010,11 +1138,19 @@ p span {
     display: flex;
     justify-content: center;
     padding: 32px 0;
+    gap: 10px;
   }
 
   .page__main-title {
+    font-weight: 600;
     max-width: 250px;
     font-size: 32px;
+  }
+
+  .page__main-subtitle {
+    font-size: 24px;
+    line-height: 133%;
+    color: #666666;
   }
 
   .product-list {
