@@ -642,7 +642,7 @@ p span {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   margin-top: 50px;
 }
 
@@ -773,7 +773,7 @@ p span {
     flex-direction: column-reverse;
   }
 
-  .size-blocks:nth-child(2n) {
+  .size-blocks:nth-child(3n) {
     flex-direction: column;
   }
 
