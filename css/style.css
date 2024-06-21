@@ -611,9 +611,11 @@ p span {
 
 .size__block {
   width: 100%;
+  max-width: 980px;
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-between;
   overflow-x: auto;
 }
 
