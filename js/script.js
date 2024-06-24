@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var block2Offset = $("#block3").offset().top + 400;
-  var block1Offset = $(".btn").offset().top - 350;
+  var block1Offset = $(".btn").offset().top - 250;
 
   // Скрываем кнопку "Подняться наверх"
   $("#scrollTopBtn").hide();
@@ -28,7 +28,7 @@ $(document).ready(function () {
       .stop()
       .animate(
         {
-          scrollTop: $(this.hash).offset().top - 100,
+          scrollTop: $(this.hash).offset().top - 200,
         },
         1000
       );
@@ -49,7 +49,7 @@ $(document).ready(function () {
     if (targetBlock.length) {
       $("html, body").animate(
         {
-          scrollTop: targetBlock.offset().top - 100,
+          scrollTop: targetBlock.offset().top - 190,
         },
         1000
       );
