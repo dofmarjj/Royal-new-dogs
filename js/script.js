@@ -75,3 +75,66 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".materialboxed").materialbox();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelector(".slides");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+
+  let currentIndex = 0;
+  const slideWidth = slides.querySelector(".slide").offsetWidth;
+
+  prevButton.addEventListener("click", () => {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateSlidePosition();
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentIndex = Math.min(currentIndex + 1, slides.children.length - 1);
+    updateSlidePosition();
+  });
+
+  let startX;
+  let startY;
+  let dist;
+  slides.addEventListener("touchstart", (e) => {
+    const firstTouch = e.touches[0];
+    startX = firstTouch.clientX;
+    startY = firstTouch.clientY;
+  });
+
+  slides.addEventListener("touchmove", (e) => {
+    if (!startX || !startY) {
+      return;
+    }
+
+    const touch = e.touches[0];
+    const distX = touch.clientX - startX;
+    const distY = touch.clientY - startY;
+
+    if (Math.abs(distX) > Math.abs(distY)) {
+      e.preventDefault();
+    }
+
+    dist = distX;
+  });
+
+  slides.addEventListener("touchend", () => {
+    if (Math.abs(dist) > 150) {
+      if (dist > 0) {
+        currentIndex = Math.max(currentIndex - 1, 0);
+      } else {
+        currentIndex = Math.min(currentIndex + 1, slides.children.length - 1);
+      }
+      updateSlidePosition();
+    }
+    startX = null;
+    startY = null;
+    dist = 0;
+  });
+
+  function updateSlidePosition() {
+    const offset = -currentIndex * slideWidth;
+    slides.style.transform = `translateX(${offset}px)`;
+  }
+});

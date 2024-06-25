@@ -602,7 +602,7 @@ p span {
 }
 
 .page-history__subtitle:last-child {
-  margin: 32px;
+  margin: 32px 0;
 }
 
 .size__page {
@@ -611,7 +611,8 @@ p span {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow-x: auto;
+  position: relative;
+  /* overflow-x: auto; */
   margin: 50px 0;
   text-align: center;
 }
@@ -623,7 +624,7 @@ p span {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 .page-size__block {
@@ -1225,3 +1226,41 @@ p span {
 }
 
 /* Full */
+
+.slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 40%;
+  /* Или другой процент для настройки ширины слайда */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  position: absolute;
+  top: 75%;
+  transform: translateY(-105%);
+  padding: 10px;
+  /* background-color: #000000; */
+  color: rgb(117, 116, 116);
+  border: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
