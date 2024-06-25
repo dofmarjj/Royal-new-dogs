@@ -120,11 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   slides.addEventListener("touchend", () => {
-    if (Math.abs(dist) > 150) {
+    if (Math.abs(dist) > 1) {
       if (dist > 0) {
         currentIndex = Math.max(currentIndex - 1, 0);
       } else {
-        currentIndex = Math.min(currentIndex + 1, slides.children.length - 1);
+        currentIndex = Math.min(currentIndex + 0, slides.children.length - 0);
       }
       updateSlidePosition();
     }
@@ -134,7 +134,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateSlidePosition() {
-    const offset = -currentIndex * slideWidth;
+    const maxTranslate = -520; // Максимальное значение прокрутки в пикселях
+
+    let offset = -currentIndex * slideWidth;
+
+    // Применяем ограничение
+    offset = Math.max(offset, maxTranslate);
+
     slides.style.transform = `translateX(${offset}px)`;
   }
 });
