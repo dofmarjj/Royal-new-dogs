@@ -121,10 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   slides.addEventListener("touchend", () => {
     if (Math.abs(dist) > 1) {
-      if (dist > 0) {
+      if (dist > 1) {
         currentIndex = Math.max(currentIndex - 1, 0);
       } else {
-        currentIndex = Math.min(currentIndex + 0, slides.children.length - 0);
+        currentIndex = Math.min(currentIndex + 1, slides.children.length - 1);
       }
       updateSlidePosition();
     }
